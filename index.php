@@ -4,7 +4,7 @@
 
 
     // richiamiamo la classe tramite il costruttore
-    $comunicate= new SystemComunication('marco', 'Giulio','augurio di compleanno', 'Tanti auguri Giulio');
+    $comunicate= new SystemComunication('marco', 'Giulio','auguri di buon compleanno', 'Tanti auguri Giulio');
     
 
     // stampiaimo a schermo le funzioni getter
@@ -14,8 +14,26 @@
     echo 'Messaggio: '. $comunicate->getMessaggio().'</br>';
     echo 'Contenuto: '.$comunicate->getContenuto().'</br>';
 
+    echo '<hr/>';
 
-    $mail = new Mail('')
+
+    $mail = new Mail('Marco','Giulio', 'Text', ' auguri di buon compleanno', 'file_text', true);
+
+    echo 'Mittente: '.$mail->getMittente().'</br>';
+    echo 'Destinatario: '.$mail->getDestinatario().'</br>';
+    echo 'tipo di Messaggio: '. $mail->getMessaggio().'</br>';
+    echo 'Contenuto: '.$mail->getContenuto().'</br>';
+    echo 'Status della mail: '.$mail->getNotifica().'</br>';
+
+
+    // inserimento metodi
+    echo 'controllo stato: ',$mail->controllMessage().'</br>';
+    echo 'stato della mail: ',$mail->sendMessage();
+    
+
+
+
+
 
 ?>
 

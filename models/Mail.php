@@ -34,6 +34,16 @@
         }
 
 
+        // inseriamo un metodo
+        public function controllMessage(){
+            return 'email inoltrata';
+        }
+        //  polimorfismo su invio del messaggio del metodo invio() in SystemComunication
+        public function  sendMessage(){
+            return 'mail inviata';
+        }
+
+
 
         
     }
