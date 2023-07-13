@@ -50,6 +50,12 @@
         public function setContenuto($contenuto){
             $this->contenuto = $contenuto;
         }
+
+
+        // inseriamo un metodo per inviare la classe
+        public function invio(){
+            return 'messaggio inviato correttamente';
+        }
     };
 
 ?>
