@@ -23,12 +23,19 @@
     echo 'Destinatario: '.$mail->getDestinatario().'</br>';
     echo 'tipo di Messaggio: '. $mail->getMessaggio().'</br>';
     echo 'Contenuto: '.$mail->getContenuto().'</br>';
-    echo 'Status della mail: '.$mail->getNotifica().'</br>';
+    if($mail->getNotifica()){
+        echo 'messaggio inoltrato corretamente <br/>';
+    }else {
+        echo 'messaggio non inviato ';
+    };
 
 
-    // inserimento metodi
+    // inserimento metodi della classe
     echo 'controllo stato: ',$mail->controllMessage().'</br>';
     echo 'stato della mail: ',$mail->sendMessage();
+
+    echo '<hr/>';
+    
     
 
 
