@@ -1,13 +1,15 @@
 <?php
+    //richiamiamo solo una volta i file delle classi all'interno dell'index
     require_once __DIR__.'/models/SystemComunication.php';
     require_once __DIR__.'/models/Mail.php';
+    require_once __DIR__.'/models/SMS.php';
 
 
     // richiamiamo la classe tramite il costruttore
     $comunicate= new SystemComunication('marco', 'Giulio','auguri di buon compleanno', 'Tanti auguri Giulio');
     
 
-    // stampiaimo a schermo le funzioni getter
+    // stampiamo a schermo le funzioni getter
 
     echo 'Mittente: '.$comunicate->getMittente().'</br>';
     echo 'Destinatario: '.$comunicate->getDestinatario().'</br>';
@@ -21,7 +23,7 @@
 
     echo 'Mittente: '.$mail->getMittente().'</br>';
     echo 'Destinatario: '.$mail->getDestinatario().'</br>';
-    echo 'tipo di Messaggio: '. $mail->getMessaggio().'</br>';
+    echo 'Tipo di Messaggio: '. $mail->getMessaggio().'</br>';
     echo 'Contenuto: '.$mail->getContenuto().'</br>';
     if($mail->getNotifica()){
         echo 'messaggio inoltrato corretamente <br/>';
@@ -31,12 +33,33 @@
 
 
     // inserimento metodi della classe
-    echo 'controllo stato: ',$mail->controllMessage().'</br>';
-    echo 'stato della mail: ',$mail->sendMessage();
+    echo 'Controllo stato: ',$mail->controllMessage().'</br>';
+    echo 'Stato della mail: ',$mail->sendMessage();
 
     echo '<hr/>';
     
+    $SMS = new SMS('Marco','Antonio', 'Text', ' auguri di buon compleanno', false, true);
+
+    echo 'Mittente: '.$SMS->getMittente().'</br>';
+    echo 'Destinatario: '.$SMS->getDestinatario().'</br>';
+    echo 'Tipo di Messaggio: '. $SMS->getMessaggio().'</br>';
+    echo 'Contenuto: '.$SMS->getContenuto().'</br>';
+    // echo 'Contenuto: '.$SMS->getSongNotification().'</br>';
     
+
+    // 
+    if($SMS->getColorLed()){
+        echo 'Colore LED: VERDE <br/>';
+    }else {
+        echo 'Colore LED: ROSSO <br/>';
+    };
+
+    if($SMS->getSongNotification()){
+        echo 'Suono Notifica: DRIIIIIIIIIIIIIN!!! <br/>';
+    }else {
+        echo 'Messaggio non inviato';
+    };
+
 
 
 
